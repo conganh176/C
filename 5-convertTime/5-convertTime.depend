@@ -1,0 +1,5 @@
+# depslib dependency file v1.0
+1562823224 source:/Users/sworlds/Desktop/C/5-convertTime/main.c
+	<stdio.h>
+	<stdlib.h>
+
