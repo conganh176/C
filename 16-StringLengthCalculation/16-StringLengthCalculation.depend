@@ -1,0 +1,5 @@
+# depslib dependency file v1.0
+1564547921 source:c:\users\sworlds\desktop\c\16-stringlengthcalculation\main.c
+	<stdio.h>
+	<stdlib.h>
+
