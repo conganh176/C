@@ -6,28 +6,28 @@
 int main()
 {
     FILE *fp = NULL;
-    char ch;
 
-    int linesCount = 0;
+    int count = 0;
+    int i = 0;
 
     fp = fopen(FILENAME, "r");
 
     if (fp == NULL)
-    {
-        printf("File does not exist");
         return -1;
-    }
 
-    while ((ch = fgetc(fp)) != EOF)
+    fseek(fp, 0, SEEK_END);
+
+    count = ftell(fp);
+
+    while(i < count)
     {
-        if(ch=='\n')
-            linesCount++;
+        i++;
+        fseek(fp, -i, SEEK_END);
+        printf("%c", fgetc(fp));
     }
 
     fclose(fp);
     fp = NULL;
-
-    printf("Total lines: %d\n", ++linesCount);
 
     return 0;
 }
