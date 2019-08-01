@@ -1,0 +1,5 @@
+# depslib dependency file v1.0
+1564634990 source:c:\users\sworlds\desktop\c\25-findingfileposition2\main.c
+	<stdio.h>
+	<stdlib.h>
+
