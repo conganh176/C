@@ -13,8 +13,8 @@ typedef struct stack
 
 
 Stack* createStack(int max);
-int pushStack(Stack *p, int dataIn);
-int popStack(Stack* p, int *dataOut);
+void pushStack(Stack *p, int dataIn);
+void popStack(Stack* p, int *dataOut);
 // int isEmptyStack()
 
 int main()
@@ -79,25 +79,25 @@ Stack* createStack (int max)
 }
 
 
-int pushStack(Stack* p, int dataIn)
+void pushStack(Stack* p, int dataIn)
 {
     if (p->count == p->max)
-        return 0;
+        return;
 
     (p->count)++;
     (p->top)++;
     p->stackArray[p->top] = dataIn;
-    return 1;
+    return;
 }
 
 
-int popStack(Stack* p, int *dataOut)
+void popStack(Stack* p, int *dataOut)
 {
     if (p->count == 0)
-        return 0;
+        return;
     
     *dataOut = p->stackArray[p->top];
     (p->count)--;
     (p->top)--;
-    return 1;
+    return;
 }
