@@ -47,6 +47,7 @@ int main()
 
     char* hex = "0123456789abcdef";
     Stack* stack = createStack(1000);
+    int numOut;
     
     do
     {
@@ -57,8 +58,8 @@ int main()
 
     while (stack->count != 0)
     {
-        popStack(stack, &num);
-        printf("%c", hex[num]);
+        popStack(stack, &numOut);
+        printf("%c", hex[numOut]);
     }
 
     return 0;
