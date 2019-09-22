@@ -58,7 +58,7 @@ int main()
     postOrderR(root);
 
     printf("\nPrint Pre Order: ");
-    // preOrder(root);
+    preOrder(root);
 
     printf("\nPrint In Order: ");
     inOrder(root);

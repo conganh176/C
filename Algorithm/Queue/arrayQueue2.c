@@ -113,7 +113,7 @@ void dequeue(Queue* queue, int* data)
     if (queue->count == 1)
         queue->rear = queue->front = -1;
 
-    (queue->front)--;
+    (queue->count)--;
 
     return;
 }
