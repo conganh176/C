@@ -41,6 +41,7 @@ int rf(int n)
 //     {
 //         int i;
 //         int sum = 0;
+        
 //         for (i = 3; i <= n; i++)
 //             sum += (2*(i - 1) + 3*(i-2));
 //         return sum;
