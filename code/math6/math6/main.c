@@ -5,21 +5,22 @@
 #include <stdio.h>
 #include <stdlib.h>
 
-struct PHANSO
+typedef struct PHANSO
 {
     int tu;
     int mau;
     double value;
-};
-
-typedef struct PHANSO phanSo;
+} phanSo;
 
 int UCLN(int a, int b);
 void Reduction(phanSo p);
+void SortUp(phanSo p[], int N);
+void SortDown(phanSo p[], int N);
+phanSo Add(phanSo p, int n);
 
 int main()
 {
-    int N;
+    int N, n;
     printf("Nhap vao luong phan tu: ");
     scanf("%d", &N);
     phanSo *arr = NULL;
@@ -46,7 +47,21 @@ int main()
         Reduction(arr[i]);
     }
 
+    SortUp(arr, N);
+    SortDown(arr, N);
     
+    printf("Nhap gia tri cong them vao: \n");
+    scanf("%d", &n);
+    printf("Gia tri phan so sau khi cong them %d: ", n);
+    
+    for (i = 0; i < N; i++)
+    {
+        phanSo newP = Add(arr[i], n);
+        printf("Phan so %d:\n", i);
+        printf("Tu: %d\n", newP.tu);
+        printf("Mau: %d\n", newP.mau);
+        printf("Ket qua: %lf\n", newP.value);
+    }
     
     return 0;
 }
@@ -81,4 +96,68 @@ void Reduction(phanSo p)
     
     int ucln = UCLN(p.tu, p.mau);
     printf("Dang toi gian: %d/%d\n", p.tu/ucln, p.mau/ucln);
+}
+
+void SortUp(phanSo p[], int N)
+{
+    int i, j;
+    phanSo temp;
+    for (i = 0; i < N; i++)
+    {
+        for (j = i + 1; j < N; j++)
+        {
+            if (p[i].value > p[j].value)
+            {
+                temp = p[j];
+                p[j] = p[i];
+                p[i] = temp;
+            }
+        }
+    }
+    
+    printf("Sap xep theo gia tri tang dan: ");
+    
+    for (i = 0; i < N; i++)
+    {
+        printf("%lf ", p[i].value);
+    }
+    
+    printf("\n");
+}
+
+void SortDown(phanSo p[], int N)
+{
+    int i, j;
+    phanSo temp;
+    for (i = 0; i < N; i++)
+    {
+        for (j = i + 1; j < N; j++)
+        {
+            if (p[i].value < p[j].value)
+            {
+                temp = p[j];
+                p[j] = p[i];
+                p[i] = temp;
+            }
+        }
+    }
+    
+    printf("Sap xep theo gia tri giam dan: ");
+    
+    for (i = 0; i < N; i++)
+    {
+        printf("%lf ", p[i].value);
+    }
+    
+    printf("\n");
+}
+
+phanSo Add(phanSo p, int n)
+{
+    phanSo t;
+    t.tu = p.tu + p.mau * n;
+    t.mau = p.mau;
+    t.value = p.value + n;
+    
+    return t;
 }
